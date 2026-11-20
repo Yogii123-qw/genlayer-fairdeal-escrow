@@ -29,7 +29,7 @@
 ## Alamat / hash
 - Studio deploy: belum ada (menunggu browser task)
 - Repo GitHub: https://github.com/Yogii123-qw/genlayer-fairdeal-escrow
-- Commit: menyusul setelah push
+- Commit: 57b8e5a661d215d5c07149a0b147d7801df13f2a (main, terverifikasi di remote)
 
 ## Langkah berikutnya
 1. Serahkan ke induk untuk uji deploy Studio lewat cloud browser (akun dev Studio, bukan wallet Monch). Tempel kontrak, deploy, panggil create_deal/fund/submit_claim/judge/finalize sampai ada transaksi ACCEPTED dan consensus tercapai. Catat alamat kontrak dan tx hash.
