@@ -3,10 +3,10 @@
 NOTE ON THE SDK PIN: the shipped contract (contracts/fairdeal.py) targets
 Studio-next (v0.4.0 header, py-genlayer pin kzybg95x1gn21dw72m7hyg0maaap04n4nx55j9yt6fkdqxtz6bz0).
 That pin is not inside any public GenVM release bundle, so local tests run a
-byte-identical copy with ONLY the header swapped to the locally available pin
-(1jb45aa8ynh2a9c9xn3b7qqh8sm5q93hwfp7jqmwsfhh8jpz09h6). The contract code is
-otherwise identical. The Studio deploy remains the authoritative check for
-the shipped pin.
+copy with ONLY the header swapped to the locally available pin
+(1jb45aa8ynh2a9c9xn3b7qqh8sm5q93hwfp7jqmwsfhh8jpz09h6), plus the era
+replacements below for names that moved between SDK versions. The Studio
+deploy remains the authoritative check for the shipped pin.
 """
 
 import re
@@ -33,6 +33,10 @@ def _local_copy(tmp_path):
     # class is gl.Contract. Swap both for local testing only.
     src = src.replace("from genlayer.types import *", "from genlayer import *", 1)
     src = src.replace("gl.contract.Contract", "gl.Contract", 1)
+    # The 1jb45-era SDK exports TreeMap at top scope, while the shipped pin
+    # only provides it as gl.storage.TreeMap (verified in Studio: bare
+    # TreeMap raises NameError at schema load). Map it back for local runs.
+    src = src.replace("gl.storage.TreeMap", "TreeMap")
     target = tmp_path / "fairdeal_local.py"
     target.write_text(src)
     return str(target)

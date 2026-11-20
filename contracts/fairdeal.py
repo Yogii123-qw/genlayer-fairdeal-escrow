@@ -89,19 +89,19 @@ def _build_judge_prompt(
 
 class FairDealEscrow(gl.contract.Contract):
     deal_count: u256
-    deal_buyer: TreeMap[u256, Address]
-    deal_seller: TreeMap[u256, Address]
-    deal_amount: TreeMap[u256, u256]
-    deal_status: TreeMap[u256, str]
-    deal_description: TreeMap[u256, str]
-    deal_buyer_claim: TreeMap[u256, str]
-    deal_seller_claim: TreeMap[u256, str]
-    deal_buyer_claimed: TreeMap[u256, bool]
-    deal_seller_claimed: TreeMap[u256, bool]
-    deal_verdict: TreeMap[u256, str]
-    deal_appeal_count: TreeMap[u256, u256]
-    deal_buyer_waived: TreeMap[u256, bool]
-    deal_seller_waived: TreeMap[u256, bool]
+    deal_buyer: gl.storage.TreeMap[u256, Address]
+    deal_seller: gl.storage.TreeMap[u256, Address]
+    deal_amount: gl.storage.TreeMap[u256, u256]
+    deal_status: gl.storage.TreeMap[u256, str]
+    deal_description: gl.storage.TreeMap[u256, str]
+    deal_buyer_claim: gl.storage.TreeMap[u256, str]
+    deal_seller_claim: gl.storage.TreeMap[u256, str]
+    deal_buyer_claimed: gl.storage.TreeMap[u256, bool]
+    deal_seller_claimed: gl.storage.TreeMap[u256, bool]
+    deal_verdict: gl.storage.TreeMap[u256, str]
+    deal_appeal_count: gl.storage.TreeMap[u256, u256]
+    deal_buyer_waived: gl.storage.TreeMap[u256, bool]
+    deal_seller_waived: gl.storage.TreeMap[u256, bool]
 
     def __init__(self):
         self.deal_count = u256(0)
