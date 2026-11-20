@@ -1,7 +1,7 @@
 # STATE.md - FairDeal Escrow (GenLayer Intelligent Contract)
 
 ## Status saat ini
-- Fase: kode selesai, uji lokal LULUS 15/15, lint LULUS, review akhir Groq selesai dan temuan diperbaiki. Repo dibuat dan di-push (commit menyusul di bawah). Studio deploy BELUM dijalankan, butuh browser task induk.
+- Fase: kode selesai, uji lokal LULUS 15/15, lint LULUS, review akhir Groq selesai dan temuan diperbaiki. Repo dibuat dan di-push. Studio deploy GAGAL sekali (TreeMap tidak terdefinisi di pin v0.4.0), diperbaiki ke gl.storage.TreeMap, uji deploy ulang berjalan.
 - STOP SEBELUM SUBMIT ke Portal. Jangan pernah submit tanpa persetujuan Monch.
 
 ## Keputusan blueprint (dari NIM Nemotron + Groq, 20 Nov 2026)
@@ -29,7 +29,7 @@
 ## Alamat / hash
 - Studio deploy: belum ada (menunggu browser task)
 - Repo GitHub: https://github.com/Yogii123-qw/genlayer-fairdeal-escrow
-- Commit: 57b8e5a661d215d5c07149a0b147d7801df13f2a (main, terverifikasi di remote)
+- Commit: 00bf6bf (main, terverifikasi di remote). Perbaikan TreeMap dari 57b8e5a.
 
 ## Langkah berikutnya
 1. Serahkan ke induk untuk uji deploy Studio lewat cloud browser (akun dev Studio, bukan wallet Monch). Tempel kontrak, deploy, panggil create_deal/fund/submit_claim/judge/finalize sampai ada transaksi ACCEPTED dan consensus tercapai. Catat alamat kontrak dan tx hash.
